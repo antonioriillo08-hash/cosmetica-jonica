@@ -1,20 +1,78 @@
-<header style="display: flex; align-items: center; justify-content: space-between; padding: 15px 5%; background-color: #ffffff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000;">
-    <div style="display: flex; align-items: center; gap: 15px;">
-        <img src="logo.png" alt="Logo" style="height: 50px; width: auto;">
-        <h1 style="font-family: 'Poppins', sans-serif; font-size: 1.1rem; font-weight: 600; text-transform: uppercase; margin: 0; letter-spacing: 1px; color: #333;">
-            Centro Cosmetica Jonica
-        </h1>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cura dei Capelli - Centro Cosmetica Jonica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --viola: #8a2be2;
+            --sfondo-chiaro: #fcf8f9;
+        }
+
+        /* Ripristiniamo lo stile identico alla Home */
+        body { font-family:  margin: 0; background-color: var(--sfondo-chiaro); color: #333; }
+
+        header {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 15px 5%; background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000;
+        }
+
+        .brand-container { display: flex; align-items: center; gap: 15px; }
+        .logo-simbolo { height: 50px; width: auto; }
+        
+        /* Titolo con lo stesso carattere della Home */
+        .titolo-negozio { 
+            font-size: 1.1rem; font-weight: 600; text-transform: uppercase; 
+            margin: 0; letter-spacing: 1px;
+        }
+
+        nav { display: flex; gap: 15px; }
+        nav a {
+            text-decoration: none; color: #555; font-weight: 600; font-size: 0.8rem;
+            padding: 8px 3px; transition: 0.3s; position: relative;
+        }
+
+        /* Gestione della striscia viola dinamica */
+        .active { color: var(--viola) !important; }
+        .active::after {
+            content: ""; position: absolute; bottom: -2px; left: 0; width: 100%;
+            height: 3px; background-color: var(--viola); border-radius: 10px;
+        }
+
+        .content { text-align: center; padding: 60px 20px; }
+        
+        h1 { 
+            font-family: 'Playfair Display', serif; font-size: 3rem; 
+            color: #333; text-shadow: 3px 3px 6px rgba(0,0,0,0.15); 
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="brand-container">
+        <img src="logo.png" alt="Logo" class="logo-simbolo">
+        <h1 class="titolo-negozio">Centro Cosmetica Jonica</h1>
     </div>
-    <nav style="display: flex; gap: 15px;">
-        <a href="index.html" style="text-decoration: none; color: #555; font-weight: 600; font-size: 0.8rem;">Home</a>
-        <a href="capelli.html" class="active" style="text-decoration: none; color: #8a2be2; font-weight: 600; font-size: 0.8rem; position: relative;">
-            Cura per i capelli
-            <span style="position: absolute; bottom: -2px; left: 0; width: 100%; height: 3px; background-color: #8a2be2; border-radius: 10px;"></span>
-        </a>
-        <a href="makeup.html" style="text-decoration: none; color: #555; font-weight: 600; font-size: 0.8rem;">Make-up</a>
-        <a href="profumeria.html" style="text-decoration: none; color: #555; font-weight: 600; font-size: 0.8rem;">Profumeria</a>
-        <a href="unghie.html" style="text-decoration: none; color: #555; font-weight: 600; font-size: 0.8rem;">Unghie</a>
-        <a href="corpo.html" style="text-decoration: none; color: #555; font-weight: 600; font-size: 0.8rem;">Cura per il corpo</a>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="capelli.html" class="active">Cura per i capelli</a>
+        <a href="makeup.html">Make-up</a>
+        <a href="profumeria.html">Profumeria</a>
+        <a href="unghie.html">Unghie</a>
+        <a href="corpo.html">Cura per il corpo</a>
     </nav>
 </header>
+
+<main class="content">
+    <h1>Cura per i capelli</h1>
+    <p>Scopri i nostri brand esclusivi: Selective ed Echosline.</p>
+</main>
+
+</body>
+</html>
 
