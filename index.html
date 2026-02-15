@@ -7,14 +7,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     
     <style>
-        :root {
-            --viola: #8a2be2;
-            --sfondo-chiaro: #fcf8f9;
-        }
-
+        :root { --viola: #8a2be2; --sfondo-chiaro: #fcf8f9; }
         body { font-family: 'Poppins', sans-serif; margin: 0; background-color: var(--sfondo-chiaro); color: #333; }
 
-        /* HEADER FISSO */
+        /* HEADER */
         header {
             display: flex; align-items: center; justify-content: space-between;
             padding: 15px 5%; background-color: #ffffff;
@@ -24,52 +20,35 @@
         .logo-simbolo { height: 50px; width: auto; }
         .titolo-negozio { font-size: 1.1rem; font-weight: 600; text-transform: uppercase; margin: 0; }
 
-        /* NAVIGAZIONE */
         nav { display: flex; gap: 15px; }
-        nav a {
-            text-decoration: none; color: #555; font-weight: 600; font-size: 0.8rem;
-            padding: 8px 3px; position: relative; transition: 0.3s;
-        }
+        nav a { text-decoration: none; color: #555; font-weight: 600; font-size: 0.8rem; padding: 8px 3px; position: relative; }
         nav a.active { color: var(--viola); }
-        nav a.active::after {
-            content: ""; position: absolute; bottom: -2px; left: 0; width: 100%;
-            height: 3px; background-color: var(--viola); border-radius: 10px;
-        }
+        nav a.active::after { content: ""; position: absolute; bottom: -2px; left: 0; width: 100%; height: 3px; background-color: var(--viola); border-radius: 10px; }
 
-        /* DESCRIZIONE CENTRALE */
+        /* DESCRIZIONE */
         .descrizione-container { max-width: 900px; margin: 50px auto; text-align: center; padding: 0 20px; }
-        .titolo-accattivante {
-            font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #222;
-            margin-bottom: 20px; line-height: 1.2; font-style: italic;
-        }
-        .testo-descrizione { font-size: 1.05rem; line-height: 1.8; color: #555; }
+        .titolo-accattivante { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 20px; font-style: italic; }
 
-        /* SEZIONI BRAND */
-        .sezione-categoria { margin: 100px auto; text-align: center; width: 90%; }
+        /* SEZIONI BRAND E SLIDER */
+        .sezione-categoria { margin: 80px auto; text-align: center; width: 90%; }
         .titolo-categoria {
-            font-family: 'Playfair Display', serif; font-size: 2.8rem; color: #333;
-            text-shadow: 3px 3px 8px rgba(0,0,0,0.2); /* Ombra pronunciata */
-            margin-bottom: 40px;
+            font-family: 'Playfair Display', serif; font-size: 2.8rem;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.2); margin-bottom: 30px;
         }
 
-        /* SLIDER AUTOMATICO */
         .slider-container {
             width: 100%; max-width: 950px; margin: 0 auto; overflow: hidden;
             border-radius: 25px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);
             background: #fff; position: relative;
         }
-        .slides { display: flex; width: 200%; animation: slideAnimation 12s infinite; }
+
+        .slides { display: flex; width: 200%; transition: transform 0.8s ease-in-out; }
         .slide { width: 50%; }
-        .slide img { width: 100%; height: 500px; object-fit: cover; display: block; }
+        .slide img { width: 100%; height: 450px; object-fit: cover; display: block; }
 
-        @keyframes slideAnimation {
-            0%, 45% { transform: translateX(0); }
-            50%, 95% { transform: translateX(-50%); }
-            100% { transform: translateX(0); }
-        }
-
+        /* PALLINI */
         .punti { margin-top: 20px; display: flex; justify-content: center; gap: 10px; }
-        .punto { width: 12px; height: 12px; background: #ccc; border-radius: 50%; }
+        .punto { width: 12px; height: 12px; background: #ccc; border-radius: 50%; transition: 0.3s; }
         .punto.attivo { background: var(--viola); width: 30px; border-radius: 10px; }
     </style>
 </head>
@@ -92,67 +71,109 @@
 
 <main>
     <section class="descrizione-container">
-        <h2 class="titolo-accattivante">PRODOTTI E ATTREZZATURE PROFESSIONALI <br>PER LA COSMESI E CURA DEL CORPO</h2>
-        <p class="testo-descrizione">
-            Il <strong>Centro Cosmetica Jonica</strong> vanta un’ampia scelta di prodotti e attrezzature professionali delle migliori marche per la cura e la bellezza di capelli, viso, mani, unghie e corpo. Collaboriamo con tantissimi brand leader nel settore e offriamo una vasta selezione di <strong>prodotti elettrici</strong> professionali, come phon di alta gamma e piastre. Affidati alla nostra esperienza decennale: siamo sempre a tua disposizione per consigli e assistenza!
-        </p>
+        <h2 class="titolo-accattivante">PRODOTTI E ATTREZZATURE PROFESSIONALI PER LA COSMESI</h2>
+        <p>Ampia scelta di prodotti e attrezzature delle migliori marche. Collaboriamo con i leader del settore per garantirti il meglio.</p>
     </section>
 
-    <section class="sezione-categoria">
+    <section class="sezione-categoria" id="cat-capelli">
         <h2 class="titolo-categoria">Cura per i Capelli</h2>
         <div class="slider-container">
-            <div class="slides">
+            <div class="slides" id="slides-capelli">
                 <div class="slide"><img src="selective.jpg" alt="Selective"></div>
                 <div class="slide"><img src="echosline.jpg" alt="Echosline"></div>
             </div>
         </div>
-        <div class="punti"><div class="punto attivo"></div><div class="punto"></div></div>
+        <div class="punti">
+            <div class="punto attivo" id="dot1-capelli"></div>
+            <div class="punto" id="dot2-capelli"></div>
+        </div>
     </section>
 
-    <section class="sezione-categoria">
-        <h2 class="titolo-categoria">Make-up</h2>
-        <div class="slider-container">
-            <div class="slides">
-                <div class="slide"><img src="mesauda.jpg" alt="Mesauda"></div>
-                <div class="slide"><img src="peggysage.jpg" alt="Peggy Sage"></div>
-            </div>
-        </div>
-        <div class="punti"><div class="punto attivo"></div><div class="punto"></div></div>
-    </section>
+    </main>
 
-    <section class="sezione-categoria">
-        <h2 class="titolo-categoria">Profumeria</h2>
-        <div class="slider-container">
-            <div class="slides">
-                <div class="slide"><img src="yodeyma.jpg" alt="Yodeyma"></div>
-                <div class="slide"><img src="police.jpg" alt="Police"></div>
-            </div>
-        </div>
-        <div class="punti"><div class="punto attivo"></div><div class="punto"></div></div>
-    </section>
+<script>
+    // Funzione per far scorrere le immagini e muovere i pallini
+    function startSlider(slidesId, dot1Id, dot2Id) {
+        const slides = document.getElementById(slidesId);
+        const dot1 = document.getElementById(dot1Id);
+        const dot2 = document.getElementById(dot2Id);
+        let index = 0;
 
-    <section class="sezione-categoria">
-        <h2 class="titolo-categoria">Estetica e Unghie</h2>
-        <div class="slider-container">
-            <div class="slides">
-                <div class="slide"><img src="estrosa.jpg" alt="Estrosa"></div>
-                <div class="slide"><img src="mnp.jpg" alt="MNP"></div>
-                </div>
-        </div>
-        <div class="punti"><div class="punto attivo"></div><div class="punto"></div></div>
-    </section>
+        setInterval(() => {
+            index = (index === 0) ? 1 : 0; // Alterna tra 0 e 1
+            
+            // Muove le immagini
+            slides.style.transform = `translateX(-${index * 50}%)`;
+            
+            // Muove i pallini
+            if (index === 0) {
+                dot1.classList.add('attivo');
+                dot2.classList.remove('attivo');
+            } else {
+                dot1.classList.remove('attivo');
+                dot2.classList.add('attivo');
+            }
+        }, 5000); // Cambia ogni 5 secondi
+    }
 
+    // Attiva lo slider per la categoria capelli
+    startSlider('slides-capelli', 'dot1-capelli', 'dot2-capelli');
     <section class="sezione-categoria">
-        <h2 class="titolo-categoria">Cura per il Corpo</h2>
-        <div class="slider-container">
-            <div class="slides">
-                <div class="slide"><img src="ocleo.jpg" alt="Ocleo"></div>
-                <div class="slide"><img src="cremeo.jpg" alt="Cremeo"></div>
-            </div>
+    <h2 class="titolo-categoria">Estetica e Unghie</h2>
+    <div class="slider-container">
+        <div id="slides-unghie" class="slides" style="width: 300%;">
+            <div class="slide" style="width: 33.33%;"><img src="estrosa.jpg"></div>
+            <div class="slide" style="width: 33.33%;"><img src="mnp.jpg"></div>
+            <div class="slide" style="width: 33.33%;"><img src="jolie.jpg"></div>
         </div>
-        <div class="punti"><div class="punto attivo"></div><div class="punto"></div></div>
-    </section>
-</main>
+    </div>
+    <div class="punti" id="dots-unghie">
+        <div class="punto attivo"></div>
+        <div class="punto"></div>
+        <div class="punto"></div>
+    </div>
+</section>
+
+<script>
+    // Funzione potenziata per gestire 2 o 3 brand
+    function initSlider(slidesId, dotsContainerId) {
+        const slides = document.getElementById(slidesId);
+        const dots = document.querySelectorAll(`#${dotsContainerId} .punto`);
+        const numSlides = dots.length;
+        let currentIndex = 0;
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % numSlides;
+            
+            // Calcola lo spostamento in base al numero di slide
+            const movePercentage = (100 / numSlides) * currentIndex;
+            slides.style.transform = `translateX(-${movePercentage}%)`;
+            
+            // Aggiorna i pallini
+            dots.forEach((dot, index) => {
+                if (index === currentIndex) {
+                    dot.classList.add('attivo');
+                } else {
+                    dot.classList.remove('attivo');
+                }
+            });
+        }, 5000);
+    }
+
+    window.onload = function() {
+        // Attivazione per le sezioni a 2 brand
+        initSlider('slides-capelli', 'dots-capelli'); // Assicurati di aver messo id="dots-capelli" al contenitore dei punti
+        initSlider('slides-makeup', 'dots-makeup');
+        initSlider('slides-profumi', 'dots-profumi');
+        initSlider('slides-corpo', 'dots-corpo');
+        
+        // Attivazione specifica per Unghie (3 brand)
+        initSlider('slides-unghie', 'dots-unghie');
+    };
+</script>
+    
+    // Nota: dovrai aggiungere gli ID e chiamare la funzione startSlider anche per le altre categorie
+</script>
 
 </body>
 </html>
