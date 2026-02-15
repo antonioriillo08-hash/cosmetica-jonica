@@ -3,73 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centro Cosmetica Jonica | Crotone</title>
+    <title>Centro Cosmetica Jonica</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; color: #333; }
-        header { background: #f8dbd4; padding: 20px; text-align: center; }
-        nav { background: #333; color: white; text-align: center; padding: 10px; }
-        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
-        .container { padding: 20px; max-width: 1000px; margin: auto; }
-        .section { margin-bottom: 40px; }
-        .grid { display: flex; gap: 20px; flex-wrap: wrap; }
-        .card { border: 1px solid #ddd; padding: 15px; flex: 1; min-width: 250px; border-radius: 8px; }
-        footer { background: #333; color: white; text-align: center; padding: 20px; position: relative; bottom: 0; width: 100%; }
+        /* Reset e stile base */
+        body { font-family: 'Helvetica', Arial, sans-serif; margin: 0; padding: 0; color: #333; }
+
+        /* HEADER: Contenitore principale */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Separa i blocchi */
+            padding: 10px 5%;
+            background-color: #ffffff;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        /* GRUPPO LOGO E TITOLO (A sinistra) */
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Spazio tra logo e scritta */
+        }
+
+        .logo-simbolo {
+            height: 60px; /* Regola l'altezza del simbolo */
+            width: auto;
+        }
+
+        .titolo-negozio {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #d4145a; /* Un colore bordeaux/rosa tipico del brand */
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        /* MENU DI NAVIGAZIONE (Al centro) */
+        nav {
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #444;
+            margin: 0 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #d4145a; /* Colore al passaggio del mouse */
+        }
+
+        /* Sezione Contenuto per testare lo scroll */
+        .hero {
+            height: 400px;
+            background: #fdf0f2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Centro Cosmetica Jonica</h1>
-    <p>La tua bellezza, la nostra passione a Crotone</p>
+    <div class="brand-container">
+        <img src="logo.png" alt="Simbolo Centro Cosmetica Jonica" class="logo-simbolo">
+        <h1 class="titolo-negozio">Centro Cosmetica Jonica</h1>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="profumeria.html">Profumeria</a>
+        <a href="capelli.html">Cura per i capelli</a>
+        <a href="makeup.html">Make-up</a>
+        <a href="estetica-unghie.html">Estetica e Unghie</a>
+    </nav>
 </header>
 
-<nav>
-    <a href="#prodotti">Prodotti</a>
-    <a href="#servizi">Servizi</a>
-    <a href="#contatti">Contatti</a>
-</nav>
-
-<div class="container">
-    
-    <section id="prodotti" class="section">
-        <h2>I Nostri Prodotti</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Cura dei Capelli</h3>
-                <p>Shampoo professionali, maschere rigeneranti e tinte di alta qualità.</p>
-            </div>
-            <div class="card">
-                <h3>Make-up</h3>
-                <p>Le migliori marche per un trucco impeccabile e duraturo.</p>
-            </div>
-            <div class="card">
-                <h3>Estetica e Unghie</h3>
-                <p>Kit per ricostruzione unghie, smalti semipermanenti e accessori.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="servizi" class="section">
-        <h2>Servizi Esclusivi</h2>
-        <ul>
-            <li>Consulenza personalizzata per la cura della pelle.</li>
-            <li>Forniture per parrucchieri ed estetiste professioniste.</li>
-            <li>Dimostrazioni sull'uso dei nuovi prodotti.</li>
-        </ul>
-    </section>
-
-    <section id="contatti" class="section">
-        <h2>Dove Trovarci</h2>
-        <p><strong>Indirizzo:</strong> Crotone (KR), Calabria</p>
-        <p><strong>Orari:</strong> Lun - Sab: 09:00 - 13:00 / 16:30 - 20:00</p>
-        <p><strong>Telefono:</strong> Inserisci qui il numero</p>
-    </section>
-
-</div>
-
-<footer>
-    &copy; 2026 Centro Cosmetica Jonica - Tutti i diritti riservati.
-</footer>
+<section class="hero">
+    <div>
+        <h2>Benvenuti al Centro Cosmetica Jonica</h2>
+        <p>Scegli una categoria dal menu in alto per iniziare.</p>
+    </div>
+</section>
 
 </body>
 </html>
