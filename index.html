@@ -8,167 +8,78 @@
     
     <style>
         :root {
-            --viola: #8a2be2; /* Colore viola per la striscia e scritte */
+            --viola: #8a2be2;
             --sfondo-chiaro: #fcf8f9;
         }
 
-        body { 
-            font-family: 'Poppins', sans-serif; 
-            margin: 0; 
-            background-color: var(--sfondo-chiaro); 
-            color: #333;
-        }
+        body { font-family: 'Poppins', sans-serif; margin: 0; background-color: var(--sfondo-chiaro); color: #333; }
 
-        /* --- HEADER E NAVIGAZIONE --- */
+        /* HEADER FISSO */
         header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 15px 5%;
-            background-color: #ffffff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 15px 5%; background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000;
         }
-
-        .brand-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
+        .brand-container { display: flex; align-items: center; gap: 15px; }
         .logo-simbolo { height: 50px; width: auto; }
+        .titolo-negozio { font-size: 1.1rem; font-weight: 600; text-transform: uppercase; margin: 0; }
 
-        .titolo-negozio {
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin: 0;
-        }
-
-        nav { display: flex; gap: 20px; position: relative; }
-
+        /* NAVIGAZIONE */
+        nav { display: flex; gap: 15px; }
         nav a {
-            text-decoration: none;
-            color: #555;
-            font-weight: 600;
-            font-size: 0.85rem;
-            padding: 10px 5px;
-            transition: color 0.3s;
-            position: relative;
+            text-decoration: none; color: #555; font-weight: 600; font-size: 0.8rem;
+            padding: 8px 3px; position: relative; transition: 0.3s;
         }
-
-        /* Effetto scritta Viola e Striscia sotto (Solo per Home in questa pagina) */
         nav a.active { color: var(--viola); }
-        
         nav a.active::after {
-            content: "";
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background-color: var(--viola);
-            border-radius: 10px;
+            content: ""; position: absolute; bottom: -2px; left: 0; width: 100%;
+            height: 3px; background-color: var(--viola); border-radius: 10px;
         }
 
-        /* --- DESCRIZIONE CENTRALE --- */
-        .descrizione-container {
-            max-width: 900px;
-            margin: 50px auto;
-            text-align: center;
-            padding: 0 20px;
-        }
-
+        /* DESCRIZIONE CENTRALE */
+        .descrizione-container { max-width: 900px; margin: 50px auto; text-align: center; padding: 0 20px; }
         .titolo-accattivante {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: #222;
-            margin-bottom: 20px;
-            line-height: 1.2;
+            font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #222;
+            margin-bottom: 20px; line-height: 1.2; font-style: italic;
         }
+        .testo-descrizione { font-size: 1.05rem; line-height: 1.8; color: #555; }
 
-        .testo-descrizione {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #666;
-        }
-
-        /* --- SEZIONI BRAND CON SLIDER --- */
-        .sezione-categoria {
-            margin: 60px auto;
-            text-align: center;
-        }
-
+        /* SEZIONI BRAND */
+        .sezione-categoria { margin: 100px auto; text-align: center; width: 90%; }
         .titolo-categoria {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            color: #333;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1); /* Ombra sul titolo */
-            margin-bottom: 30px;
+            font-family: 'Playfair Display', serif; font-size: 2.8rem; color: #333;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.2); /* Ombra pronunciata */
+            margin-bottom: 40px;
         }
 
-        /* Slider automatico semplice */
+        /* SLIDER AUTOMATICO */
         .slider-container {
-            width: 80%;
-            max-width: 800px;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: 15px;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            width: 100%; max-width: 950px; margin: 0 auto; overflow: hidden;
+            border-radius: 25px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            background: #fff; position: relative;
         }
-
-        .slides {
-            display: flex;
-            width: 200%; /* Due immagini */
-            animation: scorrimento 8s infinite;
-        }
-
+        .slides { display: flex; width: 200%; animation: slideAnimation 12s infinite; }
         .slide { width: 50%; }
+        .slide img { width: 100%; height: 500px; object-fit: cover; display: block; }
 
-        .slide img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            display: block;
-        }
-
-        @keyframes scorrimento {
-            0% { transform: translateX(0); }
-            45% { transform: translateX(0); }
-            50% { transform: translateX(-50%); }
-            95% { transform: translateX(-50%); }
+        @keyframes slideAnimation {
+            0%, 45% { transform: translateX(0); }
+            50%, 95% { transform: translateX(-50%); }
             100% { transform: translateX(0); }
         }
 
-        .punti-navigazione {
-            margin-top: 15px;
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .punto {
-            width: 10px;
-            height: 10px;
-            background-color: #ddd;
-            border-radius: 50%;
-        }
-        .punto.attivo { background-color: var(--viola); }
-
+        .punti { margin-top: 20px; display: flex; justify-content: center; gap: 10px; }
+        .punto { width: 12px; height: 12px; background: #ccc; border-radius: 50%; }
+        .punto.attivo { background: var(--viola); width: 30px; border-radius: 10px; }
     </style>
 </head>
 <body>
 
 <header>
     <div class="brand-container">
-        <img src="logo.png" alt="Simbolo" class="logo-simbolo">
+        <img src="logo.png" alt="Logo" class="logo-simbolo">
         <h1 class="titolo-negozio">Centro Cosmetica Jonica</h1>
     </div>
-
     <nav>
         <a href="index.html" class="active">Home</a>
         <a href="capelli.html">Cura per i capelli</a>
@@ -183,11 +94,7 @@
     <section class="descrizione-container">
         <h2 class="titolo-accattivante">PRODOTTI E ATTREZZATURE PROFESSIONALI <br>PER LA COSMESI E CURA DEL CORPO</h2>
         <p class="testo-descrizione">
-            Il <strong>Centro Cosmetica Jonica</strong> è il tuo punto di riferimento per la bellezza. 
-            Offriamo un’ampia scelta di prodotti e attrezzature professionali delle migliori marche per la cura di capelli, viso, mani e unghie. 
-            Siamo orgogliosi di collaborare con tantissimi brand leader del settore e offriamo una vasta gamma di 
-            <strong>prodotti elettrici</strong> come phon professionali di ultima generazione, piastre e attrezzature specializzate.
-            Acquista in tutta sicurezza e affidati ai nostri consigli: siamo sempre a tua disposizione!
+            Il <strong>Centro Cosmetica Jonica</strong> vanta un’ampia scelta di prodotti e attrezzature professionali delle migliori marche per la cura e la bellezza di capelli, viso, mani, unghie e corpo. Collaboriamo con tantissimi brand leader nel settore e offriamo una vasta selezione di <strong>prodotti elettrici</strong> professionali, come phon di alta gamma e piastre. Affidati alla nostra esperienza decennale: siamo sempre a tua disposizione per consigli e assistenza!
         </p>
     </section>
 
@@ -195,21 +102,56 @@
         <h2 class="titolo-categoria">Cura per i Capelli</h2>
         <div class="slider-container">
             <div class="slides">
-                <div class="slide"><img src="selective.jpg" alt="Selective Professional"></div>
+                <div class="slide"><img src="selective.jpg" alt="Selective"></div>
                 <div class="slide"><img src="echosline.jpg" alt="Echosline"></div>
             </div>
         </div>
-        <div class="punti-navigazione">
-            <div class="punto attivo"></div>
-            <div class="punto"></div>
-        </div>
+        <div class="punti"><div class="punto attivo"></div><div class="punto"></div></div>
     </section>
 
     <section class="sezione-categoria">
         <h2 class="titolo-categoria">Make-up</h2>
-        <p>(Qui apparirà lo slider Mesauda e Peggy Sage appena caricherai le immagini)</p>
+        <div class="slider-container">
+            <div class="slides">
+                <div class="slide"><img src="mesauda.jpg" alt="Mesauda"></div>
+                <div class="slide"><img src="peggysage.jpg" alt="Peggy Sage"></div>
+            </div>
+        </div>
+        <div class="punti"><div class="punto attivo"></div><div class="punto"></div></div>
     </section>
 
+    <section class="sezione-categoria">
+        <h2 class="titolo-categoria">Profumeria</h2>
+        <div class="slider-container">
+            <div class="slides">
+                <div class="slide"><img src="yodeyma.jpg" alt="Yodeyma"></div>
+                <div class="slide"><img src="police.jpg" alt="Police"></div>
+            </div>
+        </div>
+        <div class="punti"><div class="punto attivo"></div><div class="punto"></div></div>
+    </section>
+
+    <section class="sezione-categoria">
+        <h2 class="titolo-categoria">Estetica e Unghie</h2>
+        <div class="slider-container">
+            <div class="slides">
+                <div class="slide"><img src="estrosa.jpg" alt="Estrosa"></div>
+                <div class="slide"><img src="mnp.jpg" alt="MNP"></div>
+                </div>
+        </div>
+        <div class="punti"><div class="punto attivo"></div><div class="punto"></div></div>
+    </section>
+
+    <section class="sezione-categoria">
+        <h2 class="titolo-categoria">Cura per il Corpo</h2>
+        <div class="slider-container">
+            <div class="slides">
+                <div class="slide"><img src="ocleo.jpg" alt="Ocleo"></div>
+                <div class="slide"><img src="cremeo.jpg" alt="Cremeo"></div>
+            </div>
+        </div>
+        <div class="punti"><div class="punto attivo"></div><div class="punto"></div></div>
+    </section>
 </main>
 
 </body>
