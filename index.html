@@ -3,97 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centro Cosmetica Jonica</title>
+    <title>Centro Cosmetica Jonica - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
     <style>
-        /* Reset e stile base */
-        body { font-family: 'Helvetica', Arial, sans-serif; margin: 0; padding: 0; color: #333; }
+        :root {
+            --viola: #8a2be2; /* Colore viola per la striscia e scritte */
+            --sfondo-chiaro: #fcf8f9;
+        }
 
-        /* HEADER: Contenitore principale */
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            margin: 0; 
+            background-color: var(--sfondo-chiaro); 
+            color: #333;
+        }
+
+        /* --- HEADER E NAVIGAZIONE --- */
         header {
             display: flex;
             align-items: center;
-            justify-content: space-between; /* Separa i blocchi */
-            padding: 10px 5%;
+            justify-content: space-between;
+            padding: 15px 5%;
             background-color: #ffffff;
-            border-bottom: 1px solid #eee;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
-        /* GRUPPO LOGO E TITOLO (A sinistra) */
         .brand-container {
             display: flex;
             align-items: center;
-            gap: 15px; /* Spazio tra logo e scritta */
+            gap: 15px;
         }
 
-        .logo-simbolo {
-            height: 60px; /* Regola l'altezza del simbolo */
-            width: auto;
-        }
+        .logo-simbolo { height: 50px; width: auto; }
 
         .titolo-negozio {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #d4145a; /* Un colore bordeaux/rosa tipico del brand */
+            font-size: 1.1rem;
+            font-weight: 600;
             text-transform: uppercase;
+            letter-spacing: 1px;
             margin: 0;
         }
 
-        /* MENU DI NAVIGAZIONE (Al centro) */
-        nav {
-            flex-grow: 1;
-            text-align: center;
-        }
+        nav { display: flex; gap: 20px; position: relative; }
 
         nav a {
             text-decoration: none;
-            color: #444;
-            margin: 0 15px;
-            font-size: 0.9rem;
+            color: #555;
             font-weight: 600;
+            font-size: 0.85rem;
+            padding: 10px 5px;
             transition: color 0.3s;
+            position: relative;
         }
 
-        nav a:hover {
-            color: #d4145a; /* Colore al passaggio del mouse */
+        /* Effetto scritta Viola e Striscia sotto (Solo per Home in questa pagina) */
+        nav a.active { color: var(--viola); }
+        
+        nav a.active::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: var(--viola);
+            border-radius: 10px;
         }
 
-        /* Sezione Contenuto per testare lo scroll */
-        .hero {
-            height: 400px;
-            background: #fdf0f2;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /* --- DESCRIZIONE CENTRALE --- */
+        .descrizione-container {
+            max-width: 900px;
+            margin: 50px auto;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .titolo-accattivante {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #222;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .testo-descrizione {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #666;
+        }
+
+        /* --- SEZIONI BRAND CON SLIDER --- */
+        .sezione-categoria {
+            margin: 60px auto;
             text-align: center;
         }
+
+        .titolo-categoria {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: #333;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1); /* Ombra sul titolo */
+            margin-bottom: 30px;
+        }
+
+        /* Slider automatico semplice */
+        .slider-container {
+            width: 80%;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 15px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .slides {
+            display: flex;
+            width: 200%; /* Due immagini */
+            animation: scorrimento 8s infinite;
+        }
+
+        .slide { width: 50%; }
+
+        .slide img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        @keyframes scorrimento {
+            0% { transform: translateX(0); }
+            45% { transform: translateX(0); }
+            50% { transform: translateX(-50%); }
+            95% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+
+        .punti-navigazione {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .punto {
+            width: 10px;
+            height: 10px;
+            background-color: #ddd;
+            border-radius: 50%;
+        }
+        .punto.attivo { background-color: var(--viola); }
+
     </style>
 </head>
 <body>
 
 <header>
     <div class="brand-container">
-        <img src="logo.png" alt="Simbolo Centro Cosmetica Jonica" class="logo-simbolo">
+        <img src="logo.png" alt="Simbolo" class="logo-simbolo">
         <h1 class="titolo-negozio">Centro Cosmetica Jonica</h1>
     </div>
 
     <nav>
-        <a href="index.html">Home</a>
-        <a href="profumeria.html">Profumeria</a>
+        <a href="index.html" class="active">Home</a>
         <a href="capelli.html">Cura per i capelli</a>
         <a href="makeup.html">Make-up</a>
-        <a href="estetica-unghie.html">Estetica e Unghie</a>
+        <a href="profumeria.html">Profumeria</a>
+        <a href="unghie.html">Unghie</a>
+        <a href="corpo.html">Cura per il corpo</a>
     </nav>
 </header>
 
-<section class="hero">
-    <div>
-        <h2>Benvenuti al Centro Cosmetica Jonica</h2>
-        <p>Scegli una categoria dal menu in alto per iniziare.</p>
-    </div>
-</section>
+<main>
+    <section class="descrizione-container">
+        <h2 class="titolo-accattivante">PRODOTTI E ATTREZZATURE PROFESSIONALI <br>PER LA COSMESI E CURA DEL CORPO</h2>
+        <p class="testo-descrizione">
+            Il <strong>Centro Cosmetica Jonica</strong> è il tuo punto di riferimento per la bellezza. 
+            Offriamo un’ampia scelta di prodotti e attrezzature professionali delle migliori marche per la cura di capelli, viso, mani e unghie. 
+            Siamo orgogliosi di collaborare con tantissimi brand leader del settore e offriamo una vasta gamma di 
+            <strong>prodotti elettrici</strong> come phon professionali di ultima generazione, piastre e attrezzature specializzate.
+            Acquista in tutta sicurezza e affidati ai nostri consigli: siamo sempre a tua disposizione!
+        </p>
+    </section>
+
+    <section class="sezione-categoria">
+        <h2 class="titolo-categoria">Cura per i Capelli</h2>
+        <div class="slider-container">
+            <div class="slides">
+                <div class="slide"><img src="selective.jpg" alt="Selective Professional"></div>
+                <div class="slide"><img src="echosline.jpg" alt="Echosline"></div>
+            </div>
+        </div>
+        <div class="punti-navigazione">
+            <div class="punto attivo"></div>
+            <div class="punto"></div>
+        </div>
+    </section>
+
+    <section class="sezione-categoria">
+        <h2 class="titolo-categoria">Make-up</h2>
+        <p>(Qui apparirà lo slider Mesauda e Peggy Sage appena caricherai le immagini)</p>
+    </section>
+
+</main>
 
 </body>
 </html>
