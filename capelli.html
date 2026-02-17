@@ -3,18 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TITOLO - Centro Cosmetica Jonica</title>
+    <title>Cura per i capelli - Centro Cosmetica Jonica</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root { --viola: #8a2be2; --sfondo: #fcf8f9; }
         body { font-family: 'Poppins', sans-serif; margin: 0; background-color: var(--sfondo); color: #333; }
-        header { display: flex; align-items: center; justify-content: space-between; padding: 15px 5%; background-color: #ffffff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        
+        header { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            padding: 15px 5%; 
+            background-color: #ffffff; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+        }
+
         .brand-container { display: flex; align-items: center; gap: 15px; }
         .logo-simbolo { height: 50px; width: auto; }
-        .titolo-negozio { font-family: 'Poppins', sans-serif !important; font-size: 1.1rem; font-weight: 700; text-transform: uppercase; margin: 0; letter-spacing: 1px; color: #333; }
+
+        /* TITOLO ALLEGGERITO (600 invece di 700) */
+        .titolo-negozio { 
+            font-family: 'Poppins', sans-serif !important; 
+            font-size: 1.1rem; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            margin: 0; 
+            letter-spacing: 1px; 
+            color: #333; 
+        }
+
         nav { display: flex; gap: 15px; }
-        nav a { font-family: 'Poppins', sans-serif; text-decoration: none; color: #555; font-weight: 600; font-size: 0.8rem; padding: 8px 3px; position: relative; }
-        .active { color: var(--viola) !important; border-bottom: 3px solid var(--viola); border-radius: 2px; }
+        nav a { 
+            font-family: 'Poppins', sans-serif; 
+            text-decoration: none; 
+            color: #555; 
+            font-weight: 600; 
+            font-size: 0.8rem; 
+            padding: 8px 3px; 
+            position: relative; 
+        }
+
+        /* CLASSE CHE ILLUMINA DI VIOLA */
+        .active { 
+            color: var(--viola) !important; 
+            border-bottom: 3px solid var(--viola); 
+            border-radius: 2px; 
+        }
+
         .sezione-titolo { text-align: center; padding: 60px 20px; }
         .titolo-pagina { font-family: 'Playfair Display', serif; font-size: 3rem; text-shadow: 2px 2px 5px rgba(0,0,0,0.1); }
     </style>
@@ -27,13 +65,19 @@
     </div>
     <nav>
         <a href="index.html">Home</a>
-        <a href="capelli.html">Cura per i capelli</a>
+        <a href="capelli.html" class="active">Cura per i capelli</a>
         <a href="makeup.html">Make-up</a>
         <a href="profumeria.html">Profumeria</a>
         <a href="unghie.html">Unghie</a>
         <a href="corpo.html">Cura per il corpo</a>
     </nav>
 </header>
+<main class="sezione-titolo">
+    <h1 class="titolo-pagina">Cura per i capelli</h1>
+    <p>Scopri i nostri brand esclusivi: Selective ed Echosline.</p>
+</main>
+</body>
+</html>
 <main class="sezione-titolo">
     <h1 class="titolo-pagina">TITOLO</h1>
     <p>Sezione dedicata a TITOLO. Prodotti in arrivo...</p>
